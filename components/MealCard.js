@@ -1,18 +1,27 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
+import MealSubTitle from "./MealSubTitle";
 
 function MealCard({
+  id,
   imageUrl,
   title,
   duration,
   complexity,
   affordability,
-  onPress,
 }) {
+  const navigation = useNavigation();
+  function selectedMealHandler() {
+    navigation.navigate("MealDetail", {
+      mealId: id,
+    });
+  }
+
   return (
     <View style={styles.outerContainer}>
       <Pressable
-        onPress={onPress}
+        onPress={selectedMealHandler}
         android_ripple={{ color: "#ccc" }}
         style={({ pressed }) => (pressed ? styles.buttonPressed : null)}
       >
@@ -20,10 +29,11 @@ function MealCard({
           <Image style={styles.image} source={{ uri: imageUrl }}></Image>
           <View style={styles.mealDetailContainer}>
             <Text style={styles.title}>{title}</Text>
-            <Text style={styles.detail}>
-              {duration} {complexity.toUpperCase()}{" "}
-              {affordability.toUpperCase()}
-            </Text>
+            <MealSubTitle
+              duration={duration}
+              complexity={complexity}
+              affordability={affordability}
+            ></MealSubTitle>
           </View>
         </View>
       </Pressable>

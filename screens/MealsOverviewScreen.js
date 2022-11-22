@@ -22,20 +22,16 @@ function MealsOverviewScreen({ route, navigation }) {
   }, [catId, navigation]);
 
   function renderMealItem(itemData) {
-    function pressHandler() {
-      navigation.navigate("MealDetail");
-    }
-
-    const { title, imageUrl, duration, complexity, affordability } =
+    const { id, title, imageUrl, duration, complexity, affordability } =
       itemData.item;
 
     const mealProps = {
+      id,
       title,
       imageUrl,
       duration,
       complexity,
       affordability,
-      onPress: pressHandler,
     };
 
     return <MealCard {...mealProps} />;
