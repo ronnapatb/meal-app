@@ -11,7 +11,7 @@ function MealListDetail({ title, itemList }) {
         </View>
         {itemList.map((item) => (
           <View key={item} style={styles.itemContainer}>
-            <Text style={styles.itemText}>{item}</Text>
+            <Text style={styles.itemText}>{item} test</Text>
           </View>
         ))}
       </View>
