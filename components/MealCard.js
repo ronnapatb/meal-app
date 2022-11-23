@@ -28,7 +28,7 @@ function MealCard({
         <View style={styles.innterContainer}>
           <Image style={styles.image} source={{ uri: imageUrl }}></Image>
           <View style={styles.mealDetailContainer}>
-            <Text style={styles.title}>{title}</Text>
+            <Text style={styles.title}>{title}asdas</Text>
             <MealSubTitle
               duration={duration}
               complexity={complexity}
