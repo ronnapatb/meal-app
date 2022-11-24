@@ -2,12 +2,12 @@ kind: pipeline
 type: docker
 name: default
 
-steps:
-  - name: Checkout
-    uses: actions/checkout@v3
+platform:
+  os: linux
+  arch: arm64
 
-  - name: Use Node.js 14
-    uses: actions/setup-node@v3
-    with:
-      node-version: 14
-      cache: "yarn"
+steps:
+  - name: greetings
+    image: alpine
+    commands:
+      - echo hello
